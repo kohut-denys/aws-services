@@ -10,6 +10,7 @@ export const handlerResponse = async (handler) => {
       body: JSON.stringify(response),
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
       },
     }
   } catch (error) {
