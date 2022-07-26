@@ -1,0 +1,48 @@
+--create table products (
+--	id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+--	title text NOT null,
+--	description text,
+--	image text,
+--	price integer,
+--	year integer
+--)
+
+--create table stocks (
+--	product_id uuid,
+--	count integer,
+--	foreign key ("product_id") references "products" ("id")
+--)
+
+--CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+--insert into products (title, description, image, price, year) values
+--('Gloomhaven', 'Vanquish monsters with strategic cardplay. Fulfill your quest to leave your legacy!', 'https://cf.geekdo-images.com/sZYp_3BTDGjh2unaZfZmuA__itemrep/img/0IdBRA_G-ZdrNaxI4Z1LPQMZD0I=/fit-in/246x300/filters:strip_icc()/pic2437871.jpg', 70, 2017),
+--('Brass: Birmingham', 'Build networks, grow industries, and navigate the world of the Industrial Revolution.', 'https://cf.geekdo-images.com/x3zxjr-Vw5iU4yDPg70Jgw__itemrep/img/giNUMut4HAl-zWyQkGG0YchmuLI=/fit-in/246x300/filters:strip_icc()/pic3490053.jpg', 79.99, 2018),
+--('Through the Ages: A New Story of Civilization', 'Rewrite history as you build up your civilization in this epic card drafting game!', 'https://boardgamegeek.com/image/2663291/through-ages-new-story-civilization', 69.94, 2015),
+--('Scythe', 'Five factions vie for dominance in a war-torn, mech-filled, dieselpunk 1920s Europe.', 'https://boardgamegeek.com/image/3163924/scythe', 61.99, 2016),
+--('Underwater Cities', 'Develop future cities on the seafloor through politics, production, and science.', 'https://cf.geekdo-images.com/PwOwTVHovJAUQgghnGqCOg__itemrep/img/CHpbozXB266LtImU0nze5uXJ-HI=/fit-in/246x300/filters:strip_icc()/pic4837710.png', 54.79, 2018),
+--('Keyflower', 'Compete in a unique auction system to build the most prosperous village.', 'https://cf.geekdo-images.com/HbfgxDJZQnNEZQKvpmJxQg__itemrep/img/1l2Uipp2Xmu0rSHR3nYaEHQarMY=/fit-in/246x300/filters:strip_icc()/pic2278942.jpg', 53.60, 2012),
+--('Inis', 'Claim the crown through merit and wisdom in this Celtic island struggle.', 'https://cf.geekdo-images.com/6QE8mnPFmauoj2THsyUYPA__itemrep/img/Ni9BrlYQ43slFAi3I3QWUTsDZTM=/fit-in/246x300/filters:strip_icc()/pic4739757.jpg', 77.24, 2016),
+--('Cyclades', 'Win the favor of the Gods in this competitive auction, area control game.', 'https://cf.geekdo-images.com/6QbaJOS8acWkJ6gSYI0KaQ__itemrep/img/Yd9YB69mzV4X4e3zD6oX2H_ohik=/fit-in/246x300/filters:strip_icc()/pic584779.jpg',105.95, 2009),
+--('Railways of the World', 'Build rails, race to deliver scarce goods, and fulfill your Rail Baron`s secret goal.', 'https://cf.geekdo-images.com/Sz0wLg3TgycpzSvSMdzRJA__itemrep/img/NCx4f2YTxQF6Fp-ieQkRXKz8w-c=/fit-in/246x300/filters:strip_icc()/pic3869603.jpg', 149.99, 2005)
+
+--select ( id ) from products
+
+--insert into stocks (product_id, count) values
+--( 'd7540b2e-08e3-48c6-9c2f-3b5d406e61ca', 8),
+--( 'af4c7f11-3ece-4a1f-b6e6-41b84a1fb90a', 15),
+--( 'cb28a66a-b8d5-401c-83ed-d0c1ebb29caf', 3),
+--( '0054dc53-ce72-4918-b788-af30ddea5ab8', 7),
+--( '163be17a-4c44-47e4-a595-b536d8c34b52', 9),
+--( 'c7165e1c-00df-4829-8170-b7e82a307685', 4),
+--( '03284b3c-dc49-4e36-8768-5d827652c769', 16),
+--( '403c7165-cdf1-4be2-99c8-970eb6e10704', 2),
+--( '4c8cb3b0-13ec-4eb2-b725-b6d0a656efec', 2)
+
+--UPDATE products
+--SET image = 'https://cf.geekdo-images.com/7k_nOxpO9OGIjhLq2BUZdA__itemrep/img/RVh5N-_HcMziJ3M6Q1eLTlj8XIQ=/fit-in/246x300/filters:strip_icc()/pic3163924.jpg'
+--WHERE title = 'Scythe';
+
+--UPDATE products
+--SET image = 'https://cf.geekdo-images.com/fVwPntkJKgaEo0rIC0RwpA__itemrep/img/TF5TpehpgE7XvNSRzSSWjnYCbLc=/fit-in/246x300/filters:strip_icc()/pic2663291.jpg'
+--WHERE title = 'Through the Ages: A New Story of Civilization';

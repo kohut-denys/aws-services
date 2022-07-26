@@ -1,7 +1,12 @@
-import { products } from '../mocks/products';
-import { delay, handlerResponse, CustomError }  from '../helpers';
+import { Client } from 'pg';
+import { dbConfig } from '../configs/RDS';
+import { delay, handlerResponse, CustomError }  from '../helpers'
 
-export const getProductsById = async ({ requestContext, pathParameters = {} }) => {
+export const getProductsById = async (event) => {
+  console.log(' --- event ---', JSON.stringify(event));
+
+  const { requestContext, pathParameters = {} } = event;
+
   if (requestContext.http.method !== 'GET') {
     throw new CustomError('only Get method allowed', 400 )
   }
@@ -12,15 +17,20 @@ export const getProductsById = async ({ requestContext, pathParameters = {} }) =
     throw new CustomError('id should be passed', 400 )
   }
 
-  const product = products.find(({ id }) => id === productId)
+  const client = new Client(dbConfig);
 
-  if (!product) {
-    throw new CustomError('Product not Found', 404 )
+  try {
+    await client.connect();
+    const { rows } = await client.query(`select * from (select * from products p where p.id = '${productId}') products left join stocks on products.id = stocks.product_id`)
+    console.log('dbResult', JSON.stringify(rows));
+
+    return rows[0]
+  } catch (error) {
+    console.error(error)
+    throw new CustomError(`issues with db connection: ${error}`, error.statusCode || 500 )
+  } finally {
+    client.end();
   }
-
-  await delay(200) // DynamoDB delay imitation
-
-  return product
 };
 
 export const handler = (event) => handlerResponse(() => getProductsById(event))
